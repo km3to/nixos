@@ -1,0 +1,71 @@
+# Set your modifier key (Mod4 is the "Super" or "Windows" key)
+set $mod Mod4
+
+
+# --- Workspace Configuration ---
+# Define names for workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+
+
+# Set your terminal and application launcher
+set $terminal kitty
+set $menu wofi --show drun
+
+# --- Look and Feel ---
+# Use the system font you have installed
+font pango:Noto Sans 11
+
+# Gaps between windows
+gaps inner 10
+gaps outer 5
+
+# --- Autostart Programs ---
+# Use swaybg to set a wallpaper (change the path to your image)
+exec swaybg -m fill -i ~/Downloads/wallpaper.jpg
+
+# Start your status bar
+exec waybar
+
+# Start clipboard manager
+exec wl-paste --watch cliphist store
+
+# Start the idle daemon to lock the screen after inactivity
+exec swayidle -w \
+      timeout 300 'swaylock -f' \
+      timeout 600 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
+      before-sleep 'swaylock -f'
+
+# --- Keybindings ---
+# Launch terminal
+bindsym $mod+Return exec $terminal
+
+# Kill focused window (from your Hyprland config)
+bindsym $mod+q kill
+
+# Launch application menu (wofi)
+bindsym $mod+d exec $menu
+
+# Show clipboard history
+bindsym $mod+v exec 'cliphist list | wofi --dmenu | cliphist decode | wl-copy'
+
+# Lock the screen
+bindsym $mod+Control+l exec swaylock

@@ -1,0 +1,32 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "modules-left": ["clock"],
+  "modules-center": [],
+  "modules-right": ["cpu", "memory", "network", "battery"],
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}"
+  },
+
+  "cpu": {
+    "format": "CPU: {usage}%"
+  },
+
+  "memory": {
+    "format": "RAM: {used}MiB/{total}MiB"
+  },
+
+  "network": {
+    "format-wifi": "WiFi: {essid} ({signalStrength}%)",
+    "format-ethernet": "LAN: {ifname}",
+    "format-disconnected": "Disconnected"
+  },
+
+  "battery": {
+    "format": "Battery: {capacity}% {icon}",
+    "format-charging": "Charging: {capacity}% {icon}"
+  }
+}
+

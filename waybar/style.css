@@ -1,0 +1,17 @@
+* {
+  border: none;
+  padding: 0 6px;
+  font-family: sans-serif;
+  font-size: 12px;
+  background: #222;
+  color: #eee;
+}
+
+window#waybar {
+  background: #222;
+}
+
+#clock, #cpu, #memory, #network, #battery {
+  padding: 0 10px;
+}
+
