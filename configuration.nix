@@ -57,10 +57,10 @@
   };
 
   # Swapfile
-  swapDevices = [ { device = "/swapfile"; size = "__SWAP_SIZE_PLACEHOLDER__"; } ];
-  #swapDevices = [
-  #  { device = "/swapfile"; size = 4096; }
-  #];
+  #swapDevices = [ { device = "/swapfile"; size = "__SWAP_SIZE_PLACEHOLDER__"; } ];
+  swapDevices = [
+    { device = "/swapfile"; size = 4096; }
+  ];
 
   nixpkgs.config.allowUnfree = true;
 

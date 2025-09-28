@@ -17,7 +17,6 @@
     qgnomeplatform    # To make Qt apps use the GTK theme
     wofi
     waybar
-    vscode
 
     # Added for the Sway Ecosystem
     sway          # The window manager itself
@@ -89,6 +88,22 @@
       " Configure suda.vim
       let g:suda_smart_edit = 1
     '';
+  };
+
+  programs.vscode = {
+    enable = true;
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        vscode-icons-team.vscode-icons
+        rust-lang.rust-analyzer
+        jnoortheen.nix-ide
+      ];
+      userSettings = {
+        "editor.fontSize" = 14;
+        "workbench.colorTheme" = "Default Dark Modern";
+	"workbench.iconTheme" = "vscode-icons";
+      };
+    };
   };
 
   # --- GTK & DESKTOP THEMING ---
