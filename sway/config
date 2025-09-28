@@ -65,7 +65,7 @@ exec wl-paste --watch cliphist store
 
 # Start the idle daemon to lock the screen after inactivity
 exec swayidle -w \
-      timeout 300 'swaylock -f' \
+      timeout 300 'swaylock -f --image /home/km3to/Downloads/13808.jpg --scaling fill' \
       timeout 600 'swaymsg "output * dpms off"' \
       resume 'swaymsg "output * dpms on"' \
       before-sleep 'swaylock -f --image /home/km3to/Downloads/13808.jpg --scaling fill'
